@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Escape Volcánico - Puracé</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Canvas del Juego -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- PORTADA 1: Créditos y Datos -->
+        <div id="screen-credits" class="overlay-screen active">
+            <div class="card">
+                <h1 class="title-main">🌋 ESCAPE DEL PURACÉ</h1>
+                <p class="subtitle">Aventura de Agilidad y Supervivencia</p>
+                
+                <div class="credits-box">
+                    <p><strong>Estudiante:</strong> Luz Alejandra Chocue Caldón</p>
+                    <p><strong>Profesor:</strong> Alvaro Stid Bolaños Vasquez</p>
+                    <p><strong>Grado:</strong> Décimo A</p>
+                </div>
+
+                <button id="btn-to-instructions" class="btn-main">CONTINUAR ➔</button>
+            </div>
+        </div>
+
+        <!-- PORTADA 2: Indicaciones e Inicio -->
+        <div id="screen-instructions" class="overlay-screen hidden">
+            <div class="card">
+                <h2 class="title-sub">📜 INSTRUCCIONES</h2>
+                
+                <div class="instructions-content">
+                    <p>🏃 <strong>¡Escapa del Puracé a pie y en barco!</strong></p>
+                    <ul>
+                        <li>⬆️ <strong>Salto / Doble Salto:</strong> Toca "SALTAR" o usa Flecha Arriba / Espacio.</li>
+                        <li>⬇️ <strong>Agacharse:</strong> Toca "AGACHA" o usa Flecha Abajo.</li>
+                        <li>🚤 <strong>Nivel 2 (Barco):</strong> Controla la embarcación en el río de magma.</li>
+                        <li>💎 <strong>Recolecta:</strong> Cristales magenta (+50 pts) e insignias (+100 pts).</li>
+                    </ul>
+                </div>
+
+                <div class="highscore-badge">
+                    🏆 Récord Máximo: <span id="menu-highscore">0</span> pts
+                </div>
+
+                <button id="btn-start" class="btn-main btn-play">¡INICIAR JUEGO! 🔥</button>
+            </div>
+        </div>
+
+        <!-- HUD: Interfaz de Juego -->
+        <div id="hud" class="hidden">
+            <div class="hud-item">🌋 Nivel: <span id="hud-level">1: A pie</span></div>
+            <div class="hud-item">⭐ Puntos: <span id="hud-score">0</span></div>
+            <div class="hud-item">⏱️ Tiempo: <span id="hud-time">0</span>s</div>
+            <div class="hud-item">💎 Cristales: <span id="hud-items">0</span></div>
+        </div>
+
+        <!-- PANTALLA DE GANADOR DE NIVEL -->
+        <div id="screen-win" class="overlay-screen hidden">
+            <div class="card">
+                <h2 class="title-win">🎉 ¡VICTORIA EN LA META!</h2>
+                <p id="win-phrase" class="inspiring-phrase">"¡Increíble agilidad! Tu determinación y valentía son más fuertes que la erupción del volcán."</p>
+
+                <div class="final-stats">
+                    <p>Puntuación de Nivel: <strong id="win-score">0</strong></p>
+                    <p>Tiempo de Escape: <strong id="win-time">0s</strong></p>
+                </div>
+
+                <button id="btn-next-level" class="btn-main">¡SUBIR AL BARCO (NIVEL 2) 🚤!</button>
+            </div>
+        </div>
+
+        <!-- GAME OVER / DERROTA -->
+        <div id="screen-gameover" class="overlay-screen hidden">
+            <div class="card">
+                <h2 class="title-dead">🔥 ¡CAÍSTE EN LA LAVA!</h2>
+                <p id="lose-phrase" class="inspiring-phrase">"¡No te rindas! Cada intento es un aprendizaje y los verdaderos exploradores se levantan siempre más fuertes."</p>
+
+                <div class="final-stats">
+                    <p>Puntuación Final: <strong id="final-score">0</strong></p>
+                    <p>Tiempo Sobrevivido: <strong id="final-time">0s</strong></p>
+                    <p>Objetos Recogidos: <strong id="final-items">0</strong></p>
+                    <p class="highlight-score">Récord Personal: <strong id="final-highscore">0</strong></p>
+                </div>
+
+                <button id="btn-restart" class="btn-main">INTENTAR DE NUEVO 🔄</button>
+            </div>
+        </div>
+
+        <!-- Controles Táctiles Celular -->
+        <div id="mobile-controls" class="hidden">
+            <button id="btn-mobile-crouch" class="touch-btn crouch-btn">⬇️ AGACHAR</button>
+            <button id="btn-mobile-jump" class="touch-btn jump-btn">⬆️ SALTAR</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
